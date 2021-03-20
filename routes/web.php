@@ -15,114 +15,50 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('blocks.app');
-})->name('app');
+Route::get('/', 'HomeController@index')->name('app');
 
 
- Route::get('/news.hitech', function () {
- $news = DB::table('news')->get();
- return view('news/hitech', ['news'=>$news]);
-   // return view('news.hitech');
- })->name('hitech');
 
+Route::get('/auth.register', function () {
+    return view('auth.register');
+})->name('register');
 
-Route::get('/news.culture', function () {
-    return view('news.culture');
-})->name('culture');
-
- // Route::get('/news.business', function () {
- //  $news = DB::table('news')->get();
- // //return view('news.business', compact('news'));
- //  return view('news/business', ['news'=>$news]);
- // })->name('business');
-
-
-Route::get('/news.politics', function () {
-    return view('news.politics');
-})->name('politics');
-
-Route::get('/auth.login', function () {
-    return view('auth.login');
+Route::get('/auth/login', function () {
+    return view('auth/login');
 })->name('login');
 
- 
- Route::get('/news',     'NewsController@index')->name('business');
- Route::get('/news/{id}', 'NewsController@show');
- 
-
-/*
-
-Route::get('/news.index', function () {
-	$news = DB::table('news')->get();
-	return view('/news.index', compact('news'));
-});
-
-Route::group(['prefix'=>'news'], function () {
-  Route::get('/news',     'NewsController@index')->name('news.index');
-  Route::get('/news/{id}', 'NewsController@show')->name('news.show');
-});
-
-/*
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
-
-Route::post('/contact/submit', function () {
-    return "okey";
-});
-
-Route::get('/news.index', function () {
-	$news = DB::table('news')->get();
-	return view('/news.index', compact('news'));
-});
+Route::get('/blocks/default', function () {
+    return view('blocks/default');
+})->name('default');
 
 
 
-Route::get('/news.index', function () {
-	$news = DB::table('news')->get();
-	return view('news.index', compact('news'));
-});
 
 
+ Route::get('/news',    'NewsController@index')->name('news');
+ Route::get('/news/{name}',    'NewsController@index')->name('news.category');
+Route::get('/news/show/{item}', 'NewsController@show');
+// Route::get('/blocks/menu/',    'NewsController@index');
+ Route::get('/blocks/menu/{id}', 'NewsController@show');
+Route::post('/image/upload', 'NewsController@upload')->name('image.upload');
 
-/*
-Route::get('/news.index', function () {
-	$news = DB::table('news')->get();
-	return view('news.index', compact('news'));
-});
-*/
-// Route::get('/news/',     'NewsController@index');
-// Route::get('/news/{id}', 'NewsController@show');
+Route::get('auth/register', 'RegistrationController@creat')->name('register.get');
+Route::post('auth/register', 'RegistrationController@store')->name('register.store');
 
-  // Route::get('/news', [NewsController::class, 'index']);
-   //Route::get('/news{id}', [NewsController::class, 'show']);
-
-/*
+Route::get('auth/login', 'LoginController@create')->name('login.create');
+Route::post('auth/login', 'LoginController@store')->name('login.store');
+Route::get('/logout', 'LoginController@destroy');
 
 
-Route::get('/', function () {
-   return view('index');
-});
+Route::get('blocks/comment{$id}', 'CommentController@show');
+Route::post('blocks/comment', 'CommentController@store')->name('comment.store');
+Route::get('blocks/comment',  'CommentController@index');
 
-Route::get('/', function () {
-   return view('show');
-});
+Route::get('/admin/panel', function () {
+    return view('admin/panel');
+})->name('panel');
 
-  
-  Route::get('/',   'TaskController@index');
+Route::get('/admin/form', function () {
+    return view('admin/form');
+})->name('form');
 
-  Route::get('/tasks/{id}', 'TaskController@show');
-  Route::post('/tasks/',   'TaskController@save');
-   Route::get('/tasks/',   'TaskController@save');
-  Route::get('/tasks/{id}',   'TaskController@destroy');
-// Route::get('/',   'NewsController@index');
-*/

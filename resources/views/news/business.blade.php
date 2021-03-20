@@ -1,10 +1,10 @@
 @extends('blocks.app')
 
-@section('title')Здоровье@endsection
+@section('title')Бизнес@endsection
 
 @section('content')
     <div class="container">
-        <h2>Health</h2>
+        <h2>Business</h2>
         {{--        <img src="{{ asset('images/politics.jpg')}}" style="height: 400px; width: 500px">--}}
         @foreach($news as $new)
             <p>{{ $new->news }}</p>

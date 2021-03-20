@@ -1,22 +1,16 @@
 @extends('blocks.app')
-
-@section('title')Техналогии
+ection('title')Техналогии
 @endsection
 
 @section('content')
-<div class="container">
+    <div class="container">
         <h2>Hi-tech</h2>
-        <img src="{{ asset('images/hitech1.jpg')}}">
-         @foreach($news as $new)
-   <p>{{ $new->news }}</p>
-@endforeach
+        {{--        <img src="{{ asset('/storage/uploads/vsxUVIHYwwi52Poe9A5Opz4Au1glHvXC03O6HmCw.jpeg')}}">--}}
+        @foreach($news as $new)
+            <p>{{ $new->news }}</p>
+        @endforeach
         <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-    
-        <h2>Hi-tech</h2>
-        <img src="{{ asset('images/hitech.jpg')}}">
-         @foreach($news as $new)
-   <p>{{ $new->news }}</p>
-@endforeach
-        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-      </div>
+    </div>
 @endsection
+
+@s

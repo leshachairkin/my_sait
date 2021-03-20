@@ -17,6 +17,7 @@ class CreateNewsTable extends Migration
             $table->increments('id');
             $table->string('category');
             $table->text('news');
+            $table->string('img_id');
             $table->timestamps();
         });
     }
