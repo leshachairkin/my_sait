@@ -62,3 +62,11 @@ Route::get('/admin/form', function () {
     return view('admin/form');
 })->name('form');
 
+Route::get('/admin/home', function () {
+    return view('admin/home');
+})->name('home');
+
+Route::get('/admin/image', function () {
+    return view('admin/image');
+})->name('image');
+

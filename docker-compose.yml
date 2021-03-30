@@ -17,7 +17,7 @@ services:
   php:
     build:
       context: .
-      dockerfile: ./docker/local/dockerfiles/dockerfile_php7
+      dockerfile: docker/local/dockerfiles/dockerfile_php8
     restart: always
     volumes:
       - ./:/var/www/html:rw

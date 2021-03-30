@@ -10,13 +10,42 @@
 
     <title>Document</title>
     </head>
+<style>
+    button {
+        outline: none;
+    }
+</style>
       <body>
+
 
        <header class="navbar nav-expand-lg bg-secondary position-static">
            <div class="container-fluid">
                <h4 class="text-white">Меню</h4>
            </div>
        </header>
+   <div class="container-fluid">
+      <div class="row">
+          <div class="col-sm-3 col-lg-2 border-end">
+               <div class="btn-group-vertical m-1">
+                   <a href="home"><button type="button" class="btn btn-outline text-start">Главная</button></a>
+                   <a href="form"><button type="button" class="btn btn-outline text-start" id="news">Новости</button></a>
+                   <button type="button" class="btn btn-outline text-start">Комментарии</button>
+                 <button type="button" class="btn btn-outline text-start">Пользователи</button>
+                   <a href="image"><button type="button" class="btn btn-outline text-start">Изображение</button></a>
+               </div>
+          </div>
+
+              <div class="col-sm-2 col-lg-9">
+             <div class="container">
+
+                      @yield('content')
+
+             </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
 
 {{--       <div class="container-fluid bg-info">--}}
 {{--           <div class="row">--}}
@@ -46,33 +75,33 @@
 {{--            </div>--}}
 
 
-       <nav class="col-md-3 col-lg-2 d-md-block sidebar">
-           <div class="row">
-           <div class="container">
-           <div class="position-sticky pt-3">
-               <div class="accordion-item">
-                   <h2 class="accordion-header" id="headingTwo">
-                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                           News
-                       </button>
-                   </h2>
-                   <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                       <div class="accordion-body">
-                           <ul class="list-group">
-                               <li><a class="list-group-item" href="">Business</a></li>
-                               <li><a class="list-group-item" href="">Culture</a></li>
-                               <li><a class="list-group-item" href="">Health</a></li>
-                               <li><a class="list-group-item" href="">Hitech</a></li>
-                               <li><a class="list-group-item" href="">Politics</a></li>
-                               <li><a class="list-group-item" href="">Study</a></li>
-                           </ul>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           </div>
-           </div>
-                    </nav>
+{{--       <nav class="col-md-3 col-lg-2 d-md-block sidebar">--}}
+{{--           <div class="row">--}}
+{{--           <div class="container">--}}
+{{--           <div class="position-sticky pt-3">--}}
+{{--               <div class="accordion-item">--}}
+{{--                   <h2 class="accordion-header" id="headingTwo">--}}
+{{--                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">--}}
+{{--                           News--}}
+{{--                       </button>--}}
+{{--                   </h2>--}}
+{{--                   <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">--}}
+{{--                       <div class="accordion-body">--}}
+{{--                           <ul class="list-group">--}}
+{{--                               <li><a class="list-group-item" href="">Business</a></li>--}}
+{{--                               <li><a class="list-group-item" href="">Culture</a></li>--}}
+{{--                               <li><a class="list-group-item" href="">Health</a></li>--}}
+{{--                               <li><a class="list-group-item" href="">Hitech</a></li>--}}
+{{--                               <li><a class="list-group-item" href="">Politics</a></li>--}}
+{{--                               <li><a class="list-group-item" href="">Study</a></li>--}}
+{{--                           </ul>--}}
+{{--                       </div>--}}
+{{--                   </div>--}}
+{{--               </div>--}}
+{{--           </div>--}}
+{{--           </div>--}}
+{{--           </div>--}}
+{{--                    </nav>--}}
 
 
 

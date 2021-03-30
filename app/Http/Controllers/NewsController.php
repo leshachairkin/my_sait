@@ -50,9 +50,15 @@ class NewsController extends Controller
     public function upload(Request $request)
     {
 
+//        $path = $request->file('image')->store('public/uploads');
+//
+//        return view('/blocks/default', ['path' => str_replace('public', '', $path)]);
+//        $filename = storage_path('/uploads').'{$news->img_id}';
+//        return view('news.index', ['img_id', ['filename' => $filename]]);
+
         $path = $request->file('image')->store('public/uploads');
 
-        return view('/blocks/default', ['path' => str_replace('public', '', $path)]);
+        return view('/admin/image', ['path' => str_replace('public', '', $path)]);
         $filename = storage_path('/uploads').'{$news->img_id}';
         return view('news.index', ['img_id', ['filename' => $filename]]);
     }

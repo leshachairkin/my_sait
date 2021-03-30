@@ -3,7 +3,7 @@
 <div class="container-fluid sticky-top" style="background-color: #dededeff;">
   <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
-      <div class="col-4 pt-1">
+      <div class="col-4 pt-1 col-sm-1 col-lg-auto">
         <a class="" href="/"><img style="width: 100px; height: 70px;" src="{{ asset('images/logotipp.jpg')}}"></a>
       </div>
       <div class="col-4 text-center">
@@ -30,7 +30,7 @@
 
   </header>
 <div class="container-fluid badge-secondary">
-  <div class="nav-scroller py-0 mb-1">
+  <div class="nav-scroller py-0 mb-1 col-sm-1 col-lg-auto">
     <div class="nav d-flex justify-content-between">
       <a class="p-2 text-white" href="{{ route('app') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Главная</font></font></a>
       <a class="p-2 text-white" href="{{ route('news.category', ['hitech']) }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Технологии</font></font></a>
