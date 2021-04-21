@@ -1,4 +1,4 @@
-<footer class="container card-footer border-dark text-center">
+<footer class="container card-footer border-dark text-center bg-white">
   <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
   <p>
     <a href="#">Back to top</a>

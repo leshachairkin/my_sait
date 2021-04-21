@@ -42,6 +42,8 @@ Route::get('/news/show/{item}', 'NewsController@show');
  Route::get('/blocks/menu/{id}', 'NewsController@show');
 Route::post('/image/upload', 'NewsController@upload')->name('image.upload');
 
+Route::get('/blocks/menu',     'MenuController@index');
+
 Route::get('auth/register', 'RegistrationController@creat')->name('register.get');
 Route::post('auth/register', 'RegistrationController@store')->name('register.store');
 
@@ -58,15 +60,17 @@ Route::get('/admin/panel', function () {
     return view('admin/panel');
 })->name('panel');
 
-Route::get('/admin/form', function () {
-    return view('admin/form');
-})->name('form');
+//Route::post('/admin/form', function () {
+//    return view('admin/form');
+//})->name('form.create');
 
-Route::get('/admin/home', function () {
-    return view('admin/home');
-})->name('home');
+//Route::get('/admin/home', function () {
+//    return view('admin/home');
+//})->name('home');
 
 Route::get('/admin/image', function () {
     return view('admin/image');
 })->name('image');
 
+Route::get('admin/form',  'PostController@index');
+Route::post('/admin/form', 'PostController@create')->name('form.create');

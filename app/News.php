@@ -8,6 +8,8 @@ class News extends Model
 {
     protected $table = 'news';
 
+
+
     public function getImageAttribute()
     {
         return "/storage/uploads/". $this->img_id;

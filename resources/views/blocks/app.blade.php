@@ -6,10 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+      <link href="images/image.png" rel="shortcut icon" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>@yield('title')Главная</title>
 
   </head>
+  <style>
+      a:hover{
+          background: #f4a460;
+
+      }
+
+      img:hover{
+          box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
+          /*transform: scale(1.2);*/
+      }
+
+  </style>
 <body>
 
 @include('blocks.header')

@@ -11,6 +11,7 @@ class HomeController extends Controller
 
         $latestNews = News::orderBy('id', 'DESC')->limit(6)->get();
 
+
         return view('blocks.app', ['latestNews' => $latestNews]);
     }
 }

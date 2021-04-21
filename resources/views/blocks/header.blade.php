@@ -32,14 +32,14 @@
 <div class="container-fluid badge-secondary">
   <div class="nav-scroller py-0 mb-1 col-sm-1 col-lg-auto">
     <div class="nav d-flex justify-content-between">
-      <a class="p-2 text-white" href="{{ route('app') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Главная</font></font></a>
-      <a class="p-2 text-white" href="{{ route('news.category', ['hitech']) }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Технологии</font></font></a>
-      <a class="p-2 text-white" href="{{ route('news.category', ['culture']) }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Культура</font></font></a>
-      <a class="p-2 text-white" href="{{ route('news.category', ['business']) }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Бизнес</font></font></a>
-      <a class="p-2 text-white" href="{{ route('news.category', ['politics']) }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Политика</font></font></a>
-      <a class="p-2 text-white" href="{{ route('news.category', ['study']) }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Наука</font></font></a>
-      <a class="p-2 text-white" href="{{ route('news.category', ['health']) }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Здоровье</font></font></a>
-      <a class="p-2 text-white" href="{{ route('default') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Путешествовать</font></font></a>
+      <a class="p-2 text-white" style="vertical-align: inherit;text-decoration: none;" href="{{ route('app') }}">Главная</a>
+      <a class="p-2 text-white" style="vertical-align: inherit;text-decoration: none" href="{{ route('news.category', ['hitech']) }}">Технологии</a>
+      <a class="p-2 text-white" style="vertical-align: inherit;text-decoration: none" href="{{ route('news.category', ['culture']) }}">Культура</a>
+      <a class="p-2 text-white" style="vertical-align: inherit;text-decoration: none" href="{{ route('news.category', ['business']) }}">Бизнес</a>
+      <a class="p-2 text-white" style="vertical-align: inherit;text-decoration: none" href="{{ route('news.category', ['politics']) }}">Политика</a>
+      <a class="p-2 text-white" style="vertical-align: inherit;text-decoration: none" href="{{ route('news.category', ['study']) }}">Наука</a>
+      <a class="p-2 text-white" style="vertical-align: inherit;text-decoration: none" href="{{ route('news.category', ['health']) }}">Здоровье</a>
+      <a class="p-2 text-white" style="vertical-align: inherit;text-decoration: none" href="{{ route('default') }}">Путешествовать</a>
     </div>
   </div>
 </div>

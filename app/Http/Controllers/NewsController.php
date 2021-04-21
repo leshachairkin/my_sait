@@ -58,7 +58,7 @@ class NewsController extends Controller
 
         $path = $request->file('image')->store('public/uploads');
 
-        return view('/admin/image', ['path' => str_replace('public', '', $path)]);
+        return view('admin/form', ['path' => str_replace('public', '', $path)]);
         $filename = storage_path('/uploads').'{$news->img_id}';
         return view('news.index', ['img_id', ['filename' => $filename]]);
     }
