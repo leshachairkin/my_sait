@@ -13,14 +13,18 @@
   </head>
   <style>
       a:hover{
-          background: #f4a460;
+          /*background: #f4a460;*/
 
       }
 
       img:hover{
           box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
-          /*transform: scale(1.2);*/
+          transform: scale(1.1);
+          transition-duration: 3s;
       }
+
+
+
 
   </style>
 <body>

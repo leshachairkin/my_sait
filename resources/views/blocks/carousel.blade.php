@@ -1,5 +1,5 @@
 
-<div class="container" style="padding: 5px; width: 600px;">
+<div class="container" style="padding: 5px; width: 600px">
 {{--    <div class="row">--}}
 {{--        <div class="col-md-6">--}}
     {{--  <div class="container-fluid" style="width: 700px;">--}}

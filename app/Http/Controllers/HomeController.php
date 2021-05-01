@@ -14,4 +14,11 @@ class HomeController extends Controller
 
         return view('blocks.app', ['latestNews' => $latestNews]);
     }
+    public function show($id) {
+
+
+
+
+    }
 }
+

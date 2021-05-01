@@ -42,7 +42,7 @@ Route::get('/news/show/{item}', 'NewsController@show');
  Route::get('/blocks/menu/{id}', 'NewsController@show');
 Route::post('/image/upload', 'NewsController@upload')->name('image.upload');
 
-Route::get('/blocks/menu',     'MenuController@index');
+//Route::get('/blocks/menu/',     'MenuController@index');
 
 Route::get('auth/register', 'RegistrationController@creat')->name('register.get');
 Route::post('auth/register', 'RegistrationController@store')->name('register.store');
