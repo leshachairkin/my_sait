@@ -29,7 +29,7 @@ class NewsController extends Controller
         $news = News::join('categories', 'news.category_id', '=', 'categories.id');
         if ($name) {
             $news = $news->where('categories.url', $name);
-            $category = DB::table('categories')->where('url', $name)->first();
+            $category = Category::where('url', $name)->first();
             $categoryName = $category->name;
 
         }
@@ -58,7 +58,7 @@ class NewsController extends Controller
 
         $path = $request->file('image')->store('public/uploads');
 
-        return view('admin/form', ['path' => str_replace('public', '', $path)]);
+        return view('admin/image', ['path' => str_replace('public', '', $path)]);
         $filename = storage_path('/uploads').'{$news->img_id}';
         return view('news.index', ['img_id', ['filename' => $filename]]);
     }
@@ -92,6 +92,8 @@ class NewsController extends Controller
      */
     public function show(News $item)
     {
+        $item->count_views++;
+        $item->save();
 
         return view('news/show', ['item' => $item]);
 

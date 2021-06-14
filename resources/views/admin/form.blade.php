@@ -7,69 +7,70 @@
             {{ session('success') }}
         </div>
     @endif
-    <form method="post" action="{{ route('form.create') }}">
-    <div class="container">
+    <form method="post" action="{{ route('form.create') }}" enctype="multipart/form-data">
+        <div class="container">
 
-        <div class="row">
-            <div class="col-lg-4 col-sm-2 m-2">
-                @if(count($errors))
-                    @foreach($errors->all() as $error)
-                        <div class="alert alert-danger">{{$error}}</div>
-                    @endforeach
-                @endif
+            <div class="row">
+                <div class="col-lg-4 col-sm-2 m-2">
+                    @if(count($errors))
+                        @foreach($errors->all() as $error)
+                            <div class="alert alert-danger">{{$error}}</div>
+                        @endforeach
+                    @endif
 
                     @csrf
                     <select class="form-select" name="category_id" aria-label="select example">
                         <option selected>Выбрать категорию</option>
-                        <option value="1" id="Business">Бизнес</option>
-                        <option value="2" id="Culture">Культура</option>
-                        <option value="3" id="Health">Здоровье</option>
-                        <option value="4" id="Hitech">Технологии</option>
-                        <option value="5" id="Politics">Политика</option>
-                        <option value="6" id="Study">Наука</option>
+                        @foreach($categories as $category)
+                            <option value="{{$category->id}}" id="{{$category->url}}">{{$category->name}}</option>
+                        @endforeach
                     </select>
+                </div>
             </div>
         </div>
-    </div>
 
-{{--    <div class="container">--}}
+        {{--    <div class="container">--}}
         <div class="row">
             <div class="col-lg-6 col-sm-2 m-4 px-3">
                 <div class="mb-3">
                     <div class="card">
                         <div class="card-header alert alert-secondary">Добавить новости</div>
-{{--                    <label for="news" class="form-label">Добавить новости</label>--}}
+                        {{--                    <label for="news" class="form-label">Добавить новости</label>--}}
                         <div class="card-header bg-white">
-                    <textarea class="form-control" name="news" id="news" rows="3" style="height: 250px"></textarea>
-              <div class="card-footer bg-white">
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end m-2">
-                        <input type="text" name="img_id" placeholder="изображение">
-                        <button class="btn btn-primary me-md-2" type="submit">Добавить новости</button>
+                            <textarea class="form-control" name="news" id="news" rows="3"
+                                      style="height: 250px"></textarea>
+                            <div class="card-content">
+                                <input type="file"  name="image">
+                            </div>
+                            <div class="card-footer bg-white">
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end m-2">
+                                    <input type="text" name="img_id" placeholder="изображение">
+                                    <button class="btn btn-primary me-md-2" type="submit">Добавить новости</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                        </div>
-                        </div>
-                </div>
 
+                </div>
             </div>
+            {{--    </div>--}}
+            {{--        <div class="col-lg-5 col-sm-2 m-4">--}}
+            {{--            <div class="mb-3">--}}
+            {{--            <div class="card">--}}
+            {{--                <div class="card-header alert alert-secondary">Выбрать изображение</div>--}}
+            {{--                <div class="card-body" >--}}
+            {{--                   <img src="" class="img-fluid">--}}
+            {{--                    <div class="card-footer bg-white">--}}
+            {{--                    <div class="d-grid gap-2 d-md-flex justify-content-md-end m-2">--}}
+            {{--                    <button class="btn btn-primary me-md-2" type="submit">Выброть изображение</button>--}}
+            {{--                </div>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
+            {{--        </div>--}}
+            {{--        </div>--}}
+            {{--        </div>--}}
         </div>
-{{--    </div>--}}
-{{--        <div class="col-lg-5 col-sm-2 m-4">--}}
-{{--            <div class="mb-3">--}}
-{{--            <div class="card">--}}
-{{--                <div class="card-header alert alert-secondary">Выбрать изображение</div>--}}
-{{--                <div class="card-body" >--}}
-{{--                   <img src="" class="img-fluid">--}}
-{{--                    <div class="card-footer bg-white">--}}
-{{--                    <div class="d-grid gap-2 d-md-flex justify-content-md-end m-2">--}}
-{{--                    <button class="btn btn-primary me-md-2" type="submit">Выброть изображение</button>--}}
-{{--                </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        </div>--}}
-{{--        </div>--}}
         </div>
-    </div>
     </form>
 
 
