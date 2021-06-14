@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('app');
-
+//Route::get('blocks/menu/{id}', 'HomeController@show');
 
 
 Route::get('/auth.register', function () {

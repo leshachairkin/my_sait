@@ -43,9 +43,10 @@
                               <div class="container mt-2 border-bottom">
                                <div class="row">
                                    <div class="col-lg-4 col-sm-2 ">
-                                       <img class="" src="{{ $new->image  }}" style="width: 120px; height: 90px;"></div>
+                                       <img class="" src="{{ $new->image }}" style="width: 120px; height: 90px;"></div>
                                    <div class="col-lg-8 col-sm-2">
                                        <div class="">{{Str::substr($new->news,0,90)}}</div>
+{{--                                       <div class="">Views: {{$post->count_views}}</div>--}}
 
                                    </div>
                                </div>
