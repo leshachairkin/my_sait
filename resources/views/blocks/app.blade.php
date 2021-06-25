@@ -17,11 +17,11 @@
 
       }
 
-      img:hover{
-          box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
-          transform: scale(1.1);
-          transition-duration: 3s;
-      }
+      /*img:hover{*/
+      /*    box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);*/
+      /*    transform: scale(1.1);*/
+      /*    transition-duration: 3s;*/
+      /*}*/
 
 
 

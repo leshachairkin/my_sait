@@ -21,12 +21,16 @@
 {{--        </a>--}}
           </form>
                  @if(auth()->check())
-                     <div class="nav-item">
-                         <a class="nav-link font-weight-bold" href="#">{{auth()->user()->name}}</a>
+                     <a class="nav-item">
+                         <a href="{{route('personal')}}"><img class="" src="https://citydog.by/content/_posts/442X361/5e2c4f627a5bc.jpeg" alt="" style="height: 50px;width: 50px;border-radius: 50%"></a>
+{{--                         <a class="nav-link font-weight-bold" href="{{ route('personal') }}">{{auth()->user()->name}}</a>--}}
+{{--                         <a class="nav-link font-weight-bold" href="{{ route('personal') }}"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-lg info" viewBox="0 0 16 16">--}}
+{{--                                 <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>--}}
+{{--                             </svg></a>--}}
                      </div>
-          <div class="nav-item">
-              <a class="btn btn-sm btn-outline-primary" href="/logout">Выход</a>
-          </div>
+{{--          <div class="nav-item">--}}
+{{--              <a class="btn btn-sm btn-outline-primary" href="/logout">Выход</a>--}}
+{{--          </div>--}}
           @else
           <a class="btn btn-sm btn-outline-primary" style="margin:5px" href="{{ route('login.create') }}">Войти</a>
           <a class="btn btn-sm btn-outline-primary" href="{{ route('register') }}">Зарегистрироваться</a>

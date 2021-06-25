@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\News;
+use App\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -29,20 +30,13 @@ class NewsController extends Controller
         $news = News::join('categories', 'news.category_id', '=', 'categories.id');
         if ($name) {
             $news = $news->where('categories.url', $name);
-            $category = DB::table('categories')->where('url', $name)->first();
+            $category = Category::where('url', $name)->first();
             $categoryName = $category->name;
 
         }
         $news= $news->paginate(1);
 
         return view('news.index', ['news' => $news, 'categoryName' => $categoryName]);
-
-
-
-        // $news = News::where('id', 1)->get();
-        //  return view('news.business', ['news' => $news]);*/
-        // return view('news/business')->with('news', News::all());
-
 
     }
 
@@ -58,7 +52,7 @@ class NewsController extends Controller
 
         $path = $request->file('image')->store('public/uploads');
 
-        return view('admin/form', ['path' => str_replace('public', '', $path)]);
+        return view('admin/image', ['path' => str_replace('public', '', $path)]);
         $filename = storage_path('/uploads').'{$news->img_id}';
         return view('news.index', ['img_id', ['filename' => $filename]]);
     }
@@ -92,6 +86,8 @@ class NewsController extends Controller
      */
     public function show(News $item)
     {
+        $item->count_views++;
+        $item->save();
 
         return view('news/show', ['item' => $item]);
 

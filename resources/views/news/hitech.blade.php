@@ -1,5 +1,5 @@
 @extends('blocks.app')
-ection('title')Техналогии
+@section('title')Техналогии
 @endsection
 
 @section('content')

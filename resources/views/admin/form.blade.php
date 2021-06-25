@@ -7,99 +7,66 @@
             {{ session('success') }}
         </div>
     @endif
-    <form method="post" action="{{ route('form.create') }}">
     <div class="container">
-
-        <div class="row">
-            <div class="col-lg-4 col-sm-2 m-2">
-                @if(count($errors))
-                    @foreach($errors->all() as $error)
-                        <div class="alert alert-danger">{{$error}}</div>
-                    @endforeach
-                @endif
-
-                    @csrf
-                    <select class="form-select" name="category_id" aria-label="select example">
-                        <option selected>Выбрать категорию</option>
-                        <option value="1" id="Business">Бизнес</option>
-                        <option value="2" id="Culture">Культура</option>
-                        <option value="3" id="Health">Здоровье</option>
-                        <option value="4" id="Hitech">Технологии</option>
-                        <option value="5" id="Politics">Политика</option>
-                        <option value="6" id="Study">Наука</option>
-                    </select>
-            </div>
-        </div>
+    <div class="pull-right">
+        <a class="btn btn-primary" href="{{route('post.show')}}"> Back</a>
+    </div>
     </div>
 
-{{--    <div class="container">--}}
-        <div class="row">
-            <div class="col-lg-6 col-sm-2 m-4 px-3">
-                <div class="mb-3">
-                    <div class="card">
-                        <div class="card-header alert alert-secondary">Добавить новости</div>
-{{--                    <label for="news" class="form-label">Добавить новости</label>--}}
-                        <div class="card-header bg-white">
-                    <textarea class="form-control" name="news" id="news" rows="3" style="height: 250px"></textarea>
-              <div class="card-footer bg-white">
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end m-2">
-                        <input type="text" name="img_id" placeholder="изображение">
-                        <button class="btn btn-primary me-md-2" type="submit">Добавить новости</button>
-                    </div>
-                        </div>
-                        </div>
+{{-- <div class="container">--}}
+
+        <div class="container">
+
+            <div class="flex-row">
+                <div class="col-lg-4 col-sm-2 mb-2">
+                    @if(count($errors))
+                        @foreach($errors->all() as $error)
+                            <div class="alert alert-danger">{{$error}}</div>
+                        @endforeach
+                    @endif
+                </div>
+                    <div class="col-lg-2 col-sm-2 mb-2">
+                        <a href="{{route('post.category')}}"><button class="btn btn-success" type="submit">add category:</button></a>
+                </div>
+                </div>
                 </div>
 
+    <div class="container">
+                <form class="form-group" action="{{route('post.store')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+
+                    <div class="col-xs-12 col-sm-12 col-md-10">
+                        <select class="form-select" name="category_id" aria-label="select example">
+                            <option selected>Выбрать категорию</option>
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}" id="{{$category->url}}">{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-10">
+                        <div class="form-group">
+                            <strong>News:</strong>
+                            <textarea class="form-control" style="height:150px" name="news" id="news" value="" placeholder="Detail"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-10">
+                        <div class="form-group">
+                            <strong>Image:</strong>
+                            <input type="file" name="image" class="form-control" placeholder="image">
+                            <img class="mt-3" src="" width="300px">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-10 text-center">
+                        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                    </div>
+                </form>
+               </div>
+
             </div>
-        </div>
-{{--    </div>--}}
-{{--        <div class="col-lg-5 col-sm-2 m-4">--}}
-{{--            <div class="mb-3">--}}
-{{--            <div class="card">--}}
-{{--                <div class="card-header alert alert-secondary">Выбрать изображение</div>--}}
-{{--                <div class="card-body" >--}}
-{{--                   <img src="" class="img-fluid">--}}
-{{--                    <div class="card-footer bg-white">--}}
-{{--                    <div class="d-grid gap-2 d-md-flex justify-content-md-end m-2">--}}
-{{--                    <button class="btn btn-primary me-md-2" type="submit">Выброть изображение</button>--}}
-{{--                </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        </div>--}}
-{{--        </div>--}}
-        </div>
-    </div>
-    </form>
 
 
-    {{--    <nav class="col-md-3 col-lg-2 d-md-block sidebar">--}}
-    {{--           <div class="row">--}}
-    {{--           <div class="container">--}}
-    {{--           <div class="position-sticky pt-3">--}}
-    {{--               <div class="accordion-item">--}}
-    {{--                   <h2 class="accordion-header" id="headingTwo">--}}
-    {{--                       <button class="accordion-button collapsed border-0 text-start"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">--}}
-    {{--                           Новости--}}
-    {{--                       </button>--}}
-    {{--                   </h2>--}}
-    {{--                   <div id="collapseTwo" class="accordion-collapse collapse border-0" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">--}}
-    {{--                       <div class="accordion-body border-0">--}}
-    {{--                           <ul class="list-group" style="list-style-type: none;">--}}
-    {{--                               <li><a class="list-group-item border-0" href="">Business</a></li>--}}
-    {{--                               <li><a class="list-group-item border-0" href="">Culture</a></li>--}}
-    {{--                               <li><a class="list-group-item border-0" href="">Health</a></li>--}}
-    {{--                               <li><a class="list-group-item border-0" href="">Hitech</a></li>--}}
-    {{--                               <li><a class="list-group-item border-0" href="">Politics</a></li>--}}
-    {{--                               <li><a class="list-group-item border-0" href="">Study</a></li>--}}
-    {{--                           </ul>--}}
-    {{--                       </div>--}}
-    {{--                   </div>--}}
-    {{--               </div>--}}
-    {{--           </div>--}}
-    {{--           </div>--}}
-    {{--           </div>--}}
-    {{--                    </nav>--}}
+
+{{-- </div>--}}
 
 
 

@@ -38,7 +38,7 @@
                               <polyline points="10 9 9 9 8 9"></polyline></svg>Топ новостей</div>
                       <div class="card-body p-2">
 
-                               @foreach($latestNews as $new)
+                               @foreach($topNews as $new)
 
                               <div class="container mt-2 border-bottom">
                                <div class="row">
