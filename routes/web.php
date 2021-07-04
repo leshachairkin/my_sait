@@ -57,28 +57,46 @@ Route::get('auth/login', 'LoginController@create')->name('login.create');
 Route::post('auth/login', 'LoginController@store')->name('login.store');
 Route::get('/logout', 'LoginController@destroy');
 
-Route::get('auth/personal/', 'LoginController@index')->name('personal');
+Route::get('auth/personal', 'LoginController@index')->name('personal');
 Route::post('auth/personal/edit', 'LoginController@edit')->name('personal.edit');
 Route::put('auth/form/{name}', 'LoginController@update')->name('personal.update');
 Route::get('auth/form/', 'LoginController@show')->name('personal.show');
-//Route::post('auth/personal', 'LoginController@index');
+Route::post('auth/personal', 'LoginController@index');
 Route::post('auth/personal/', 'LoginController@avatar')->name('personal.avatar');
+Route::get('auth/comments', 'LoginController@indexComments')->name('comments');
 //Route::get('auth/form/', 'LoginController@form')->name('personal.form');
+
+
+
+Route::get('/auth/menu', function () {
+    return view('auth/menu');
+})->name('menu');
+
+
+
+
+
+
 
 
 Route::get('blocks/comment{$id}', 'CommentController@show');
 Route::post('blocks/comment', 'CommentController@store')->name('comment.store');
 Route::get('blocks/comment',  'CommentController@index');
 
-Route::get('/admin/panel', function () {
-    return view('admin/panel');
-})->name('panel');
+
+
+
+
+
 
 
 Route::get('/admin/image', function () {
     return view('admin/image');
 })->name('image');
 
+Route::get('/admin/panel', function () {
+    return view('admin/panel');
+})->name('panel');
 
 
 
@@ -95,6 +113,15 @@ Route::post('admin/form',  'PostController@index')->name('post.index');
 Route::get('admin/show{news}',  'PostController@views')->name('post.views');
 Route::post('admin/index',  'PostController@addCategory')->name('post.category');
 Route::get('admin/index/',  'PostController@addCategory');
+
+
+Route::get('admin/Comments/commit', 'CommentController@indexCommit')->name('commit');
+Route::delete('admin/Comments/commit{comment}', 'CommentController@destroy')->name('commit.destroy');
+Route::get('admin/Comments/commit/{comment}', 'CommentController@showCommit')->name('commit.show');
+Route::get('admin/Comments/form','CommentController@createCommit')->name('admin.create');
+Route::get('admin/users',   'LoginController@usersView')->name('users');
+Route::post('admin/Comments/commit', 'CommentController@storeCommit')->name('commit.store');
+
 
 
 

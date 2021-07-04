@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Comments;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\News;
@@ -127,6 +128,7 @@ class PostController extends Controller
         return redirect()->route('post.category')->with('success', 'Category created successfully.');
 
     }
+
 
 
 }

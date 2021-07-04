@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comments;
 use App\User;
 use App\Users;
 use Illuminate\Database\Eloquent\Model;
@@ -87,8 +88,15 @@ class LoginController extends Controller
      return redirect()->route('personal')->with('success', 'Post created successfully.');
  }
 
-// public function avatarshow() {
-//
-// }
+ public function usersView() {
+
+     $users = Users::latest()->paginate(10);
+     return view('admin/users', ['users' => $users]);
+ }
+ public function indexComments(Comments $comment) {
+
+        $comment = Comments::select('text', 'news_id')->where('user_id', Auth::user()->id)->get();
+        return view('auth/comments', compact('comment'));
+ }
 
 }

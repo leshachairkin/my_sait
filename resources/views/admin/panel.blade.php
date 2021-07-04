@@ -25,10 +25,10 @@
       <div class="row">
           <div class="col-sm-3 col-lg-2 border-end">
                <div class="btn-group-vertical m-1">
-                   <a href="panel"><button type="button" class="btn btn-outline text-start" active>Главная</button></a>
+                   <a href="{{route('panel')}}"><button type="button" class="btn btn-outline text-start" active>Главная</button></a>
                    <a href="{{route('post.show')}}"><button type="button" class="btn btn-outline text-start" id="news">Новости</button></a>
-                   <button type="button" class="btn btn-outline text-start">Комментарии</button>
-                 <button type="button" class="btn btn-outline text-start">Пользователи</button>
+                   <a href="{{route('commit')}}"><button type="button" class="btn btn-outline text-start">Комментарии</button></a>
+                   <a href="{{route('users')}}"><button type="button" class="btn btn-outline text-start">Пользователи</button></a>
                    <a href="image"><button type="button" class="btn btn-outline text-start">Изображение</button></a>
                    <a href="/"><button type="button" class="btn btn-outline text-start">Сайт</button></a>
                    <a href="{{route('app')}}"><button type="button" class="btn btn-outline text-start">Lesson</button></a>

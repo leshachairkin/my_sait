@@ -1,4 +1,4 @@
-@extends('blocks.app')
+@extends('auth.menu')
 
 {{--@section('title')Личный кабинет@endsection--}}
 

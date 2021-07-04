@@ -1,18 +1,18 @@
-@extends('blocks.app')
+@extends('auth.menu')
 
 {{--@section('title')Личный кабинет@endsection--}}
 
-@section('content')
+@section('contente')
 
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
+{{--    @if ($message = Session::get('success'))--}}
+{{--        <div class="alert alert-success">--}}
+{{--            <p>{{ $message }}</p>--}}
+{{--        </div>--}}
+{{--    @endif--}}
 
 <div class="container">
     <div class="row">
-        <div class="col-4">
+        <div class="col-3">
 
             @foreach($name as $nam)
             <img class="mt-3" src="{{ ($nam->avatar) }}" style="height: 100px;width: 100px;border-radius: 50px;">
@@ -23,12 +23,12 @@
                             <strong>Image:</strong>
                             <input type="file" name="image" class="form-control" placeholder="image">
                         </div>
-                    <div class="col-xs-12 col-sm-12 col-md-10 text-center">
+                    <div class="col-xs-8 col-sm-12 col-md-10 text-center">
                         <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     </div>
     </form>
     </div>
-        <div class="col-7">
+        <div class="col-6">
     <div class="container">
 
         <table class="table">
