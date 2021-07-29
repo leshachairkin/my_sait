@@ -23,7 +23,7 @@ class PostController extends Controller
     {
         return view('admin/form');
     }
-
+    
 
     public function store(Request $request)
     {

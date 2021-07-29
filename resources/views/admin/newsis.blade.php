@@ -13,7 +13,7 @@
     </div>
 
     <div class="container">
-        <div class="card mb-3">
+        <div class="card mb-3 border-0">
             <div class="card-header">
                 <div class="row">
                     <div class="col-lg-2 col-sm-1">
@@ -35,7 +35,7 @@
                 </div>
 
             </div>
-            <div class="card-body border-0">
+            <div class="card-body">
                 @foreach($news as $new)
 
                     <div class="row text-left mb-2">

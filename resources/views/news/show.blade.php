@@ -1,6 +1,6 @@
 @extends('blocks.app')
 
-@section('title')Бизнес @endsection
+@section('title')  @endsection
 
 @section('content')
     <div class="container">

@@ -2,7 +2,7 @@
 
 {{--@section('title')Личный кабинет@endsection--}}
 
-@section('content')
+@section('contente')
 
     <div class="container">
     <div class="pull-right">
@@ -10,7 +10,7 @@
     </div>
 
         <div class="row">
-            <div class="col-3">
+            <div class="col-5">
 
                     <form action="{{route('personal.update', $name->id)}}" method="POST">
                         @csrf
@@ -35,7 +35,7 @@
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                                <button type="submit" class="btn btn-primary mb-2" id="submit">Submit</button>
                             </div>
                         </div>
                     </form>

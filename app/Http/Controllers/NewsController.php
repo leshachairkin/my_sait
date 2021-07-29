@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Viewed;
 use Illuminate\Http\Request;
 use App\News;
 use App\Category;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class NewsController extends Controller
 {
@@ -18,15 +21,7 @@ class NewsController extends Controller
     public function index($name = null)
     {
         $categoryName = 'Все новости';
-//        $news = DB::table('news');
-//        if ($name) {
-//            $news = $news->join('categories', 'news.category_id', '=', 'categories.id')
-//                ->where('categories.url', $name)->paginate(1);
-//            $category = DB::table('categories')->where('url', $name)->first();
-//            $categoryName = $category->name;
-//
-//        }
-//        News::orderBy('id', 'DESC')->limit(3)
+
         $news = News::join('categories', 'news.category_id', '=', 'categories.id');
         if ($name) {
             $news = $news->where('categories.url', $name);
@@ -34,7 +29,7 @@ class NewsController extends Controller
             $categoryName = $category->name;
 
         }
-        $news= $news->paginate(1);
+        $news= $news->select(['news.*', 'categories.id as category_id', 'categories.name'])->paginate(1);
 
         return view('news.index', ['news' => $news, 'categoryName' => $categoryName]);
 
@@ -43,12 +38,6 @@ class NewsController extends Controller
 
     public function upload(Request $request)
     {
-
-//        $path = $request->file('image')->store('public/uploads');
-//
-//        return view('/blocks/default', ['path' => str_replace('public', '', $path)]);
-//        $filename = storage_path('/uploads').'{$news->img_id}';
-//        return view('news.index', ['img_id', ['filename' => $filename]]);
 
         $path = $request->file('image')->store('public/uploads');
 
@@ -88,6 +77,11 @@ class NewsController extends Controller
     {
         $item->count_views++;
         $item->save();
+        $viewed = Viewed::where('user_id', Auth::user()->id)->where('news_id', $item->id)->first();
+        if(!$viewed){
+            Viewed::create(['user_id'=> Auth::user()->id, 'news_id'=>$item->id]);
+        }
+
 
         return view('news/show', ['item' => $item]);
 

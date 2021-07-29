@@ -7,20 +7,24 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-sm-3 col-lg-3 border-end">
+        <div class="col-sm-3 col-lg-3">
             <div class="btn-group-vertical m-1">
                 <a href="personal"><button type="button" class="btn btn-outline text-start">Личные данные</button></a>
                 <a href="comments"><button type="button" class="btn btn-outline text-start">Мои Комментарии</button></a>
-                <a><button type="button" class="btn btn-outline text-start">Просмотренные новости</button></a>
+                <a href="newse"><button type="button" class="btn btn-outline text-start">Просмотренные новости</button></a>
+                <a href="/logout"><button type="button" class="btn btn-outline text-start text-danger">Выход</button><img src="{{asset('images/image_exit.png')}}" style="width: 20px;height: 20px;"></a>
             </div>
         </div>
 
         <div class="col-sm-2 col-lg-9">
             <div class="container">
-{{--                @if(Request::is('auth/menu'))--}}
-{{--                    --}}
-{{--                @endif--}}
 
+                <div class="container">
+{{--                @include('auth/personal')--}}
+{{--                @if(Request::is('auth/menu'))--}}
+{{--                    <h2 class="text-center">HELLO {{auth()->user()->name}}</h2>--}}
+{{--                @endif--}}
+                </div>
                 @yield('contente')
 
             </div>

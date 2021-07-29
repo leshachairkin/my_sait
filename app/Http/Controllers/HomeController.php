@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index(){
 
-        $latestNews = News::orderBy('id', 'DESC')->limit(6)->get();
+        $latestNews = News::orderBy('id', 'DESC')->limit(10)->get();
         $topNews = News::orderBy('count_views', 'DESC')->limit(3)->get();
 
 

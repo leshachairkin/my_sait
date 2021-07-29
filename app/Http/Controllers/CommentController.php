@@ -6,8 +6,10 @@ use App\News;
 use App\User;
 use App\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Comments;
+use SebastianBergmann\CodeCoverage\TestFixture\C;
 
 class CommentController extends Controller
 {
@@ -33,7 +35,26 @@ class CommentController extends Controller
         return view('blocks/comment', ['text' => Comments::all()]);
         }
 
+   public function replyStory(Request $request, News $news) {
 
+//        $replys = new Comments();
+
+        $replys = Comments::where('user_id',Auth::user()->id)->first();
+        if ($replys) {
+            $replys->reply = $request->post('reply');
+            $replys->save();
+        }
+
+        return redirect()->route('admin.create')->with('success', 'Answer');
+   }
+
+
+   public function ReplyInt(Comments $request) {
+//       $replyse = Comments::where('reply',Auth::user()->id)->get();
+//       return view('admin/Comments/views', compact('replyse'));
+
+       return view('admin/Comments/views', ['reply' => $request->user()]);
+   }
 
     public function show(Comments $id) {
 //         $comments = Comments::all('id')->count();

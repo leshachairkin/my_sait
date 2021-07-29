@@ -9,7 +9,7 @@
 
                               @foreach($latestNews as $new)
 
-                                      <a class="card shadow-sm border-0" href="{{ route('news') }}">
+                                      <a class="card shadow-sm border-0" name="image" href="{{ route('news') }}">
                                           <img class="" src="{{ $new->image  }}" style="width: 640px; height: 400px;"></a>
                                       <div class="card-body">
                                           <div class="border-bottom">{{Str::substr($new->news,0,150)}}</div>
@@ -40,8 +40,8 @@
 
                                @foreach($topNews as $new)
 
-                              <div class="container mt-2 border-bottom">
-                               <div class="row">
+{{--                              <div class="container mt-2 border-bottom">--}}
+                               <div class="row mt-2">
                                    <div class="col-lg-4 col-sm-2 ">
                                        <img class="" src="{{ $new->image }}" style="width: 120px; height: 90px;"></div>
                                    <div class="col-lg-8 col-sm-2">
@@ -50,7 +50,8 @@
 
                                    </div>
                                </div>
-                              </div>
+                          <hr>
+{{--                              </div>--}}
                                @endforeach
 
                       </div>

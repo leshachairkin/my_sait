@@ -64,6 +64,17 @@ Route::get('auth/form/', 'LoginController@show')->name('personal.show');
 Route::post('auth/personal', 'LoginController@index');
 Route::post('auth/personal/', 'LoginController@avatar')->name('personal.avatar');
 Route::get('auth/comments', 'LoginController@indexComments')->name('comments');
+Route::get('auth/newse', 'LoginController@newsesViews')->name('newse');
+//Route::get('auth/image_s', 'LoginController@avatar')->name('image_s.avatar');
+
+Route::get('auth/image_s', function () {
+    return view('auth/image_s');
+})->name('image_s.avatar');
+
+//Route::get('auth/personal{avatar}','LoginController@avatarView')->name('avatar');
+//Route::delete('auth/personal{avatar}', 'LoginController@deleteAvatar')->name('delete.avatar');
+
+
 //Route::get('auth/form/', 'LoginController@form')->name('personal.form');
 
 
@@ -121,6 +132,8 @@ Route::get('admin/Comments/commit/{comment}', 'CommentController@showCommit')->n
 Route::get('admin/Comments/form','CommentController@createCommit')->name('admin.create');
 Route::get('admin/users',   'LoginController@usersView')->name('users');
 Route::post('admin/Comments/commit', 'CommentController@storeCommit')->name('commit.store');
+Route::post('admin/Comments/form', 'CommentController@replyStory')->name('commit.reply');
+Route::get('admin/Comments/views{replase}','CommentController@ReplyInt')->name('viewses');
 
 
 
