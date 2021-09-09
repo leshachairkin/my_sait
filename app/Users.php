@@ -27,5 +27,9 @@ class Users extends Model
         return "/images/no_foto.png";
     }
 
+    public function UserNews() {
+        return $this->belongsTo(UserNews::class);
+    }
+
 
 }

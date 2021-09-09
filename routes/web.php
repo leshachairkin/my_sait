@@ -71,6 +71,15 @@ Route::get('auth/image_s', function () {
     return view('auth/image_s');
 })->name('image_s.avatar');
 
+//Route::get('auth/my_news', function () {
+//    return view('auth/my_news');
+//})->name('my_news');
+
+Route::post('auth/add_news','UserNewsController@store')->name('add_news.store');
+Route::get('auth/add_news','UserNewsController@index')->name('add_news');
+Route::get('auth/my_news', 'UserNewsController@userView')->name('my_news.view');
+
+
 //Route::get('auth/personal{avatar}','LoginController@avatarView')->name('avatar');
 //Route::delete('auth/personal{avatar}', 'LoginController@deleteAvatar')->name('delete.avatar');
 
@@ -109,6 +118,14 @@ Route::get('/admin/panel', function () {
     return view('admin/panel');
 })->name('panel');
 
+//Route::get('/admin/UserNews/unews', function () {
+//    return view('admin/UserNews/unews');
+//})->name('unews');
+
+//Route::get('/admin/UserNews/view_news', function () {
+//    return view('admin/UserNews/view_news');
+//})->name('view_news');
+
 
 
 
@@ -136,7 +153,9 @@ Route::post('admin/Comments/form', 'CommentController@replyStory')->name('commit
 Route::get('admin/Comments/views{replase}','CommentController@ReplyInt')->name('viewses');
 
 
+Route::get('admin/UserNews/unews', 'UserNewsController@show')->name('unews.show');
 
+Route::get('admin/UserNews/view_news{userNews}', 'UserNewsController@edit')->name('view_news.edit');
 
 //Route::resource('lesson/posts/',scooll\PostController::class);
 //

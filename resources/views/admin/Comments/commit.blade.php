@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="col-lg-2 col-sm-2" id="User">
-                            {{$user->name}}
+{{--                            {{$user->name}}--}}
 
                         </div>
 

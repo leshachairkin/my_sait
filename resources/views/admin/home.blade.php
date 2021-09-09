@@ -3,7 +3,7 @@
 {{--@section('content')--}}
 
     <div class="container">
-  <div class="row p-2 px-1">
+  <div class="row p-2 px-1 mt-2">
       <div class="col-lg-3 col-sm-1">
         <div class="alert alert-success" role="alert">
             <h4 class="alert-heading">Новости</h4>

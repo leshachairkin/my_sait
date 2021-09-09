@@ -12,6 +12,8 @@
                 <a href="personal"><button type="button" class="btn btn-outline text-start">Личные данные</button></a>
                 <a href="comments"><button type="button" class="btn btn-outline text-start">Мои Комментарии</button></a>
                 <a href="newse"><button type="button" class="btn btn-outline text-start">Просмотренные новости</button></a>
+                <a href="add_news"><button type="button" class="btn btn-outline text-start">Добавить новости</button></a>
+                <a href="{{route('my_news.view')}}"><button type="button" class="btn btn-outline text-start">Мои новости</button></a>
                 <a href="/logout"><button type="button" class="btn btn-outline text-start text-danger">Выход</button><img src="{{asset('images/image_exit.png')}}" style="width: 20px;height: 20px;"></a>
             </div>
         </div>

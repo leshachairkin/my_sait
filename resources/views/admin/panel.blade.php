@@ -15,8 +15,8 @@
 </style>
       <body>
 
-
-       <header class="navbar nav-expand-lg bg-secondary position-static">
+{{--      position-static--}}
+       <header class="navbar nav-expand-lg bg-secondary sticky-top">
            <div class="container-fluid">
                <div class="row">
                    <div class="col-lg-2">
@@ -34,13 +34,14 @@
    <div class="container-fluid">
       <div class="row">
           <div class="col-sm-3 col-lg-2 border-end">
-               <div class="btn-group-vertical m-1">
+               <div class="btn-group-vertical m-1  position-fixed">
                    <a href="{{route('panel')}}"><button type="button" class="btn btn-outline text-start">Главная</button></a>
                    <a href="{{route('post.show')}}"><button type="button" class="btn btn-outline text-start" id="news">Новости</button></a>
                    <a href="{{route('commit')}}"><button type="button" class="btn btn-outline text-start">Комментарии</button></a>
-                   <a href="{{route('users')}}"><button type="button" class="btn btn-outline text-start">Пользователи<span class="badge text-info"></span></button></a>
+                   <a href="{{route('users')}}"><button type="button" class="btn btn-outline text-start">Пользователи</button><span class="badge text-info"></span></a>
+                   <a href="{{route('unews.show')}}"><button type="button" class="btn btn-outline text-start">Новости пользователей</button><span class="badge text-info"></span></a>
                    <a href="image"><button type="button" class="btn btn-outline text-start">Изображение</button></a>
-                   <a href="/"><button type="button" class="btn btn-outline text-start">Сайт</button></a>
+                   <a href="/"><button type="button" class="btn btn-outline text-start"><strong style="color: green">Сайт</strong></button><img src="{{asset('images/door.jpg')}}" style="height: 20px; width: 20px;"></a>
                    <a href="{{route('app')}}"><button type="button" class="btn btn-outline text-start">Lesson</button></a>
 
                </div>
