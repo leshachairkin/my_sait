@@ -15,40 +15,40 @@
             <div class="form-group">
                 <div class="form-group mt-2">
               <strong>User:</strong>
-                        {{$userNews->user->name}}
+{{--                        {{$userNews->user->name}}--}}
                     <hr>
                 </div>
                 <div class="form-group mt-2">
                <strong>Category:</strong>
-                    {{$userNews->category_id}}
+                    {{$userNews->category->name}}
                     <hr>
                 </div>
                 <div class="form-group mt-2">
                <strong>News:</strong>
-                    {{$userNews->userNews}}
+                    {{$userNews->news}}
                     <hr>
                 </div>
                 <div class="form-group mt-2">
                <strong>Image:</strong>
-                    <img src="{{$userNews->UserImg}}" style="width: 300px; height: 150px">
+                    <img src="{{$userNews->UserImg}}" style="width: 300px; height: 200px">
                 </div>
             </div>
 {{--            @endforeach--}}
         </div>
 
-        <div class="container mt-4 text-center">
-            <div class="row">
-                <div class="col-4">
-             <button class="btn btn-success">Редактировать</button>
-                </div>
-                <div class="col-4">
-                    <a href=""><button class="btn btn-info">Опубликовать</button></a>
-                </div>
-                <div class="col-4">
-                    <button class="btn btn-danger">Удалить</button>
-                </div>
-            </div>
-        </div>
+{{--        <div class="container mt-4 text-center">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-4">--}}
+{{--             <button class="btn btn-success">Редактировать</button>--}}
+{{--                </div>--}}
+{{--                <div class="col-4">--}}
+{{--                    <a href=""><button class="btn btn-info">Опубликовать</button></a>--}}
+{{--                </div>--}}
+{{--                <div class="col-4">--}}
+{{--                    <button class="btn btn-danger">Удалить</button>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
     </div>
 

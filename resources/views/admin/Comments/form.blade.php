@@ -20,7 +20,7 @@
                             <hr>
                             <div class="form-group" name="name">
                                 <strong>Name:</strong>
-                                {{Auth::user()->name}}
+
                             </div>
                             <hr>
                             <textarea class="form-control" name="reply"></textarea>
@@ -28,7 +28,6 @@
                     <button type="submit" class="btn btn-primary mt-3">Submit</button>
         </form>
         </div>
-
 
 
 

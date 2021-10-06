@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-3">
 {{--            {{\App\User::find(Auth::user()->id)->avatar}}--}}
-           <a href="{{route('image_s.avatar')}}"> <img class="mt-3" src="" style="height: 100px;width: 100px;border-radius: 50px;"></a>
+           <a href="{{route('image_s.avatar')}}"> <img class="mt-3" src="{{$user->avatar}}" style="height: 100px;width: 100px;border-radius: 50px;"></a>
 
 
 {{--                <form class="form-group" action="{{route('personal.avatar')}}" method="POST" enctype="multipart/form-data">--}}

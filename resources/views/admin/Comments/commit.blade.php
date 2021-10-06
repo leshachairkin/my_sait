@@ -40,7 +40,7 @@
 
                         <div class="col-lg-3 col-sm-1" id="News">
 
-                            {{Str::substr($comm->news->news,0,100)}}
+                            {{Str::substr($comm->news->news,0,70) . '...'}}
 
                         </div>
                         <div class="col-lg-3 col-sm-1" id="Commit">
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="col-lg-2 col-sm-2" id="User">
-{{--                            {{$user->name}}--}}
+                            {{$comm->user->name}}
 
                         </div>
 

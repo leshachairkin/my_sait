@@ -20,16 +20,16 @@ class NewsController extends Controller
      */
     public function index($name = null)
     {
-        $categoryName = 'Все новости';
+        $categoryName = '';
 
         $news = News::join('categories', 'news.category_id', '=', 'categories.id');
         if ($name) {
-            $news = $news->where('categories.url', $name);
+            $news = $news->where('categories.url', $name)->where('news_views', 1);
             $category = Category::where('url', $name)->first();
             $categoryName = $category->name;
 
         }
-        $news= $news->select(['news.*', 'categories.id as category_id', 'categories.name'])->paginate(1);
+        $news= $news->select(['news.*', 'categories.id as category_id', 'categories.name', ])->paginate(2);
 
         return view('news.index', ['news' => $news, 'categoryName' => $categoryName]);
 
@@ -77,11 +77,12 @@ class NewsController extends Controller
     {
         $item->count_views++;
         $item->save();
-        $viewed = Viewed::where('user_id', Auth::user()->id)->where('news_id', $item->id)->first();
-        if(!$viewed){
-            Viewed::create(['user_id'=> Auth::user()->id, 'news_id'=>$item->id]);
+        if (auth()->check()) {
+            $viewed = Viewed::where('user_id', Auth::user()->id)->where('news_id', $item->id)->first();
+            if (!$viewed) {
+                Viewed::create(['user_id' => Auth::user()->id, 'news_id' => $item->id]);
+            }
         }
-
 
         return view('news/show', ['item' => $item]);
 

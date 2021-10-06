@@ -31,10 +31,10 @@
                             {{$news->created_at}}
                         </div>
                         <div class="col-2">
-                            {{$news->category_id}}
+                            {{$news->category->name}}
                         </div>
                         <div class="col-4">
-                            {{Str::substr($news->userNews,0,70)}}
+                            {{Str::substr($news->news,0,70)}}
                         </div>
                         <div class="col-2">
                             <img src="{{$news->UserImg}}" style="width: 100px; height: 80px">

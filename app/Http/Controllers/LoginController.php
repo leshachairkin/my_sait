@@ -39,9 +39,11 @@ class LoginController extends Controller
         return redirect()->to('/');
     }
 
-    public function index()
+    public function index(Users $users)
     {
-        return view('auth/personal');
+
+//        $users = User::where('name', 'email', 'avatar_id')->where('is_blocked', 1);
+            return view('auth/personal');
     }
 
     public function update(Request $request, Users $name)
@@ -103,18 +105,6 @@ class LoginController extends Controller
     }
 
 
-//    public function avatarView()
-//    {
-//
-//        $avatar = Users::where('avatar', Auth::user()->id)->get();
-//        return view('auth/personal', compact('avatar'));
-//    }
-
-//public function deleteAvatar(Users $avatar) {
-//        $avatar->delete();
-//
-//        return redirect()->route('personal')->with('success', 'Avatar delete');
-//}
 
     public function usersView()
     {
@@ -128,6 +118,18 @@ class LoginController extends Controller
 
         $comment = Comments::select('text', 'news_id', 'reply')->where('user_id', Auth::user()->id)->get();
         return view('auth/comments', compact('comment'));
+    }
+
+    public function ViewUser(Request $request) {
+
+        if ($request->has('name')) {
+            $userViews = Users::find($request->post('name'));
+            $userViews->is_blocked = !$userViews->is_blocked;
+
+            $userViews->save();
+        }
+
+        return redirect()->back();
     }
 
 

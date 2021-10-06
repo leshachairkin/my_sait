@@ -11,7 +11,7 @@ class Comments extends Model
 
 
         public function user() {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(Users::class, 'user_id','id');
     }
 
     public function news(){
@@ -19,6 +19,6 @@ class Comments extends Model
     }
 
     public function categories() {
-            return $this->belongsTo(Category::class,'name');
+            return $this->hasMany(Category::class);
     }
 }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-      <link href="images/image.png" rel="shortcut icon" type="image/x-icon">
+      <link class="" href="images/image.png" rel="shortcut icon" type="image/x-icon" style="border-radius: 20%;">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>@yield('title')Главная</title>
 
@@ -17,28 +17,44 @@
 
       }
 
-      /*img:hover{*/
-      /*    box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);*/
-      /*    transform: scale(1.1);*/
-      /*    transition-duration: 3s;*/
-      /*}*/
+
+      #imgNews {
+          opacity: 0.65;
+      }
+
+      #imgNews:hover{
+          /*box-shadow: 4px 4px 0px 0px rgba(122,122,122,0.5);*/
+          /*transform: scale(1.1);*/
+          /*transition-duration: 3s;*/
+          filter: alpha(opacity=100);
+          opacity: 1;
+          transition: 2s;
+      }
 
 
 
   </style>
 <body>
 
-@include('blocks.header')
+            @include('blocks.header')
 
-@yield('content')
+    @yield('content')
 
- @if(Request::is('/'))
-     @include('blocks/carousel')
- @endif
+             @if(Request::is('/'))
+                 @include('blocks/carousel')
+             @endif
 
-  @if(Request::is('/'))
-  @include('blocks.menu')
-  @endif
+
+
+            @if(Request::is('/'))
+                @include('blocks.menu')
+
+            @endif
+{{--            @if(Request::is('/'))--}}
+
+                @include('blocks.sidebar')
+{{--            @endif--}}
+
 
 
 

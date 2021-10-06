@@ -53,7 +53,7 @@
                                  style="height: 80px; width: 100px">
                         </div>
                         <div class="col-lg-4 col-sm-2" id="news">
-                            {{Str::substr($new->news,0,100)}}
+                            {{Str::substr($new->news,0,100) . '...'}}
                         </div>
 
                         <div class="col-lg-2 col-sm-1 mt-2">

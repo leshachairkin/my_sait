@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     protected $table = 'news';
-    protected $fillable = ['category', 'news', 'img_id'];
+    protected $fillable = ['category', 'news', 'img_id', 'name_id'];
 
 
     public function getImageAttribute()
@@ -25,6 +25,10 @@ class News extends Model
 
     public function viewed() {
         return $this->hasMany(Viewed::class);
+    }
+
+    public function user() {
+        return $this->belongsTo(Users::class,'name_id','id');
     }
 
 }

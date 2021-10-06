@@ -15,7 +15,7 @@
 
             @foreach($viewed as $view)
     <div class="card mb-3 mt-3 m-2" style="width: 14rem;">
-        <img src="{{$view->news->image}}" class="card-img-top" alt="...">
+        <img src="{{$view->news->image}}" class="card-img-top" alt="..." height="200">
         <div class="card-body">
             <p class="card-text">{{Str::substr($view->news->news, 0, 70)}}</p>
         </div>

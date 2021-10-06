@@ -4,7 +4,7 @@
 @section('content')
 
     <div class="container">
-     {{Auth::user()->reply}}
+     {{$commit->user->name}}
 {{--    @foreach($replyse as $reply)--}}
 
 {{--        {{$reply->reply}}--}}

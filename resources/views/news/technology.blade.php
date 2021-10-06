@@ -1,5 +1,5 @@
 @extends('blocks.app')
-@section('title')Техналогии
+@section('title')Технологии
 @endsection
 
 @section('content')
@@ -9,8 +9,8 @@
         @foreach($news as $new)
             <p>{{ $new->news }}</p>
         @endforeach
-        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+{{--        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>--}}
     </div>
 @endsection
 
-@s
+

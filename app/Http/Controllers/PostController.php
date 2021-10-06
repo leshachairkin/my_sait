@@ -23,7 +23,7 @@ class PostController extends Controller
     {
         return view('admin/form');
     }
-    
+
 
     public function store(Request $request)
     {
@@ -52,7 +52,7 @@ class PostController extends Controller
 
     public function show(News $news)
     {
-
+//        where('view', 1)->
         $news = News::latest()->paginate(7);
 //        $news = News::orderBy('id', 'DESC')->limit(4)->get();
         return view('admin/newsis', ['news' => $news]);

@@ -31,13 +31,7 @@ Route::get('/blocks/default', function () {
     return view('blocks/default');
 })->name('default');
 
-//Route::get('/auth/personal', function () {
-//    return view('auth/personal');
-//})->name('personal');
 
-
-
-//Route::get('/news/{name}',    'NewsController@index')->name('news.category');
 
  Route::get('/news',    'NewsController@index')->name('news');
  Route::get('/news/{name}',    'NewsController@index')->name('news.category');
@@ -66,6 +60,7 @@ Route::post('auth/personal/', 'LoginController@avatar')->name('personal.avatar')
 Route::get('auth/comments', 'LoginController@indexComments')->name('comments');
 Route::get('auth/newse', 'LoginController@newsesViews')->name('newse');
 //Route::get('auth/image_s', 'LoginController@avatar')->name('image_s.avatar');
+Route::post('admin/users', 'LoginController@ViewUser')->name('view.users');
 
 Route::get('auth/image_s', function () {
     return view('auth/image_s');
@@ -78,6 +73,9 @@ Route::get('auth/image_s', function () {
 Route::post('auth/add_news','UserNewsController@store')->name('add_news.store');
 Route::get('auth/add_news','UserNewsController@index')->name('add_news');
 Route::get('auth/my_news', 'UserNewsController@userView')->name('my_news.view');
+
+Route::post('news/show', 'CommentController@ReplyC')->name('reply_story');
+
 
 
 //Route::get('auth/personal{avatar}','LoginController@avatarView')->name('avatar');
@@ -102,6 +100,7 @@ Route::get('/auth/menu', function () {
 Route::get('blocks/comment{$id}', 'CommentController@show');
 Route::post('blocks/comment', 'CommentController@store')->name('comment.store');
 Route::get('blocks/comment',  'CommentController@index');
+
 
 
 
@@ -156,6 +155,8 @@ Route::get('admin/Comments/views{replase}','CommentController@ReplyInt')->name('
 Route::get('admin/UserNews/unews', 'UserNewsController@show')->name('unews.show');
 
 Route::get('admin/UserNews/view_news{userNews}', 'UserNewsController@edit')->name('view_news.edit');
+Route::get('auth/add_news', 'UserNewsController@category')->name('category.add_news');
+Route::post('auth/UserNews/unews', 'UserNewsController@ViewsNews')->name('view.unews');
 
 //Route::resource('lesson/posts/',scooll\PostController::class);
 //

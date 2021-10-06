@@ -78,8 +78,8 @@ class CommentController extends Controller
         return redirect()->route('commit')->with('success', 'Комментарий удолен');
     }
 
-    public function createCommit() {
-        return view('admin/Comments/form');
+    public function createCommit(Comments $comment) {
+        return view('admin/Comments/form', compact($comment));
 
     }
     public function storeCommit(Request $request,Comments $comment) {
@@ -92,4 +92,17 @@ class CommentController extends Controller
 
         return redirect()->route('commit');
     }
+
+    public function ReplyC(Request $request,Comments $comment) {
+
+        $comment = Comments::where('user_id',Auth::user()->id)->first();
+        if ($comment) {
+            $comment->reply = $request->post('reply');
+            $comment->save();
+        }
+
+        return redirect()->back();
+    }
+
+
 }
